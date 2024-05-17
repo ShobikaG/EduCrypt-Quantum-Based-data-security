@@ -34,3 +34,17 @@
 
 <a href="https://drive.google.com/file/d/13Y0VEbewISCWh1dYwmkqYY2c-KWcMcmw/view?usp=sharing">Click Here </a>
 
+<hr>
+
+<b>Architecture</b>
+
+<b><i>Encryption</b></i>
+
+![2](https://github.com/ShobikaG/EduCrypt-Quantum-Based-data-security/assets/110718471/43ed7c46-c668-4905-8de6-bc095384ee35)
+
+<b><i>Decryption</b></i>
+
+![1](https://github.com/ShobikaG/EduCrypt-Quantum-Based-data-security/assets/110718471/ada1bb99-c880-4bba-86a9-4f6a4bdfbee2)
+
+
+
