@@ -9,6 +9,8 @@
 ● Less prone to cyber attacks than the existing security models<br>
 <br>
 ●  Data is highly secured , there is no misuse of data<br>
+<br>
+●  It is <b><i>1000× times faster than classical computers</b></i>
 
 <hr>
 
