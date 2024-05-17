@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EduCrypt - Employee Technical</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/vendorquill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/vendorquill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">EduCrypt</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+           
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <span class="d-none d-md-block dropdown-toggle ps-2"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed " href="/admin">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/admission">
+            <i class="bi-file-earmark-person"></i>
+            <span>Admission</span>
+          </a>
+        </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/studentrecord">
+          <i class="bi-people"></i>
+          <span>Student Records</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi-person-lines-fill"></i><span>Employee Records</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="charts-chartjs.html">
+              <i class="bi bi-circle"></i><span>Teaching</span>
+            </a>
+          </li>
+          <li>
+            <a href="/nontechnical">
+              <i class="bi bi-circle"></i><span>Non-Teaching</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>Management</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Charts Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-register.html">
+          <i class="bi bi-card-list"></i>
+          <span>Result Publish</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi-trophy-fill"></i>
+          <span>Achievements</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-error-404.html">
+          <i class="bi-calendar-event-fill"></i>
+          <span>Events</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+   
+
+          <div class="card">
+            {% if name %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <i class="bi bi-check-circle me-1"></i>
+              Employee name : <strong>{{ name }}</strong>, is added to the Employee list successfully
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+              {% endif %}
+      
+            <div class="card-body">
+              <h5 class="card-title">Employee Technical</h5>
+
+              <form class="row g-3">
+                <!-- Personal Information -->
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="fullName" placeholder="Full Name">
+                        <label for="fullName">Full Name</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="date" class="form-control" id="dob" placeholder="Date of Birth">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                </div>
+          <div class="col-md-3">
+            <div class="form-floating mb-3">
+                <select class="form-select" id="gender" aria-label="Gender">
+                    <option selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="gender">Gender</label>
+            </div>
+        </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+                  <label for="floatingEmail">Your Email</label>
+                  <br>
+                </div>
+                <br>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" id="floatingPassword" placeholder="Phone Number">
+                  <label for="floatingPassword">Phone Number </label>
+                  <br>
+                </div>
+                <br>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Address" id="address" style="height: 100px;"></textarea>
+                    <label for="address">Address</label>
+                </div>
+            </div>
+              
+              <div class="col-md-4">
+                <div class="col-md-10">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingCity" placeholder="City">
+                    <label for="floatingCity">City</label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingState" placeholder="State">
+                  <label for="floatingState">State</label>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingZip" placeholder="Zip">
+                  <label for="floatingZip">Zip</label>
+                </div>
+              </div>
+              <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+              <h4 class="card-title" >&emsp;Identification and Documentation</h4>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">&emsp;Government-issued Identification :</label>
+                <br>
+                <div class="col-sm-2">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Select</option>
+                    <option value="1">Aadhar</option>
+                    <option value="2">Diving-License</option>
+                    <option value="3">Voter ID</option>
+                  </select>
+                </div>
+              
+                
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="ID number" class="form-control" id="floatingEmail" placeholder="ID number">
+                    <label for="floatingEmail">ID number</label>
+                    <br>
+                  </div>
+                  <br>
+                </div>
+              <br>
+          
+              <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+              <h4 class="card-title"> &emsp;Educational Background</h4>
+              <br>
+              <div class="col-md-8">
+                <div id="degreesContainer">
+                  <fieldset class="degree-fieldset">
+                      <h5>Degree</h5>
+                      <br>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          &emsp;<input type="text" class="form-control" id="floatingName" placeholder="Institution Name">
+                          <label for="floatingName">Institution Name</label>
+                        </div>
+                      </div>
+                      <br><br>
+                      <div class="col-md-6">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" id="floatingName" placeholder="Major">
+                          <label for="floatingName">Major</label>
+                        </div>
+                      </div>
+                      <br><br>
+                      <div class="row mb-3">
+                        <label for="inputDate" class="col-sm-5 col-form-label">&emsp;Graduation Date</label>
+                        <div class="col-sm-8">
+                          <input type="date" class="form-control">
+                        </div>
+                      </div>
+                  </fieldset>
+               </div>
+               <br>
+              </div>
+              <hr>
+              <div id="certificationsContainer">
+                <fieldset class="fieldset">
+                    <h5>&emsp;Certification</h5>
+                    <br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="Certification Name">
+                      <label for="floatingName">&emsp;Certification Name</label>
+                    </div>
+                    <br><br>
+                    <div class="row mb-3">
+                      <label for="inputNumber" class="col-sm-2 col-form-label">ID Number</label>
+                      <div class="col-sm-2">
+                        <input type="number" class="form-control">
+                      </div>
+                    </div>
+                </fieldset>
+                <br>
+            </div>
+            <!--<button type="button" style="font-size:15px;padding :3px 0px;background-color:lightskyblue;" onclick="addCertification()">Add Certification</button>
+            <br><br>
+            <label for="previouslyWorked">Have you worked at any previous educational institutions?</label>
+            <button type="button" onclick="toggleInstitutionsContainer('yes')">Yes</button>
+            <button type="button" onclick="toggleInstitutionsContainer('no')">No</button>
+            <br><br>-->
+          <hr>
+           <div id="institutionsContainer" class="hidden">
+              <fieldset class="fieldset">
+                <h5>Previous Educational Institution </h5>
+                <br>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingName" placeholder="Institution_Name">
+                  <label for="floatingName">Institution Name</label>
+                </div>
+                <br><br>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingName" placeholder="Position_held">
+                  <label for="floatingName">Position Held</label>
+                </div>
+                <br><br>
+                <div class="col-md-12">
+                  <div class="row mb-3">
+                    <label for="inputDate" class="col-sm-2 col-form-label">Start Date:</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <br><br>
+                <div class="col-md-12">
+                  <div class="row mb-3">
+                    <label for="inputDate" class="col-sm-2 col-form-label">End Date:</label>
+                    <div class="col-sm-10">
+                      <input type="date" class="form-control">
+                    </div>
+                  </div>
+                </div>
+             </fieldset>
+           </div>
+           
+           <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+           <h4 class="card-title">Professional Experience</h4>
+           <form id="workHistoryForm">
+            <div id="workHistoryContainer">
+                <fieldset class="fieldset">
+                    <h5>Employment History </h5>
+                    <br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="Employer_Name">
+                      <label for="floatingName">Employer Name</label>
+                    </div>
+                    <br><br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="Position_held">
+                      <label for="floatingName">Position Held</label>
+                    </div>
+                    <br><br>
+                    <div class="row mb-3">
+                      <label for="inputDate" class="col-sm-2 col-form-label">Start Date:</label>
+                      <div class="col-sm-10">
+                        <input type="date" class="form-control">
+                      </div>
+                    </div>
+                    <br><br>
+                    <div class="row mb-3">
+                      <label for="inputDate" class="col-sm-2 col-form-label">End Date:</label>
+                      <div class="col-sm-10">
+                        <input type="date" class="form-control">
+                      </div>
+                    </div>
+                </fieldset>
+            </div>
+            
+            <hr>
+            <div id="teachingExperienceContainer">
+              <fieldset class="fieldset">
+                <br>
+                  <h5>Teaching Experience </h5>
+                  <br>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Subject_Taught">
+                    <label for="floatingName">Subject Taught</label>
+                  </div>
+                  <br><br>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Grade_Level">
+                    <label for="floatingName">Grade Level</label>
+                  </div>
+               </fieldset>
+            </div>
+              <hr>
+              <div id="researchExperienceContainer">
+                <fieldset class="fieldset">
+                  <br>
+                    <h5>Research Experience</h5>
+                    <br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="Publication">
+                      <label for="floatingName">Publication</label>
+                    </div>
+                    <br><br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="Research_Project">
+                      <label for="floatingName">Research Project</label>
+                    </div>
+                    <br><br>
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingName" placeholder="grant_received">
+                      <label for="floatingName">Grant Received</label>
+                    </div>
+                </fieldset>
+            </div>
+            <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+            <h4 class="card-title">Specializations and Areas of Expertise</h4>
+            <div id="subjectsQualifiedContainer">
+              <fieldset class="fieldset">
+                  <h5>Subjects Qualified </h5>
+                  <br>
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Subject">
+                    <label for="floatingName">Subject</label>
+                  </div>
+              </fieldset>
+          </div>
+          
+          <hr>
+          <div id="researchInterestsContainer">
+            <fieldset class="fieldset">
+              <br>
+                <h5>Research Interests </h5>
+                <br>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingName" placeholder="Research_interest">
+                  <label for="floatingName">Research Interest</label>
+                </div>
+            </fieldset>
+        </div>
+        <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+        <h4 class="card-title">Employment Details</h4>
+        <br>
+        <div id="proposedPositionContainer">
+          <fieldset class="fieldset">
+            <br>
+              <h5>Proposed Position</h5>
+              <br>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Proposed Position/Title:</label>
+                <div class="col-sm-2">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Select</option>
+                    <option value="1">Professor</option>
+                    <option value="2">Associate Professor</option>
+                    <option value="3">Assistant Professor</option>
+                    <option value="4">Lecturer</option>
+                    <option value="5">Researcher</option>
+                  </select>
+                </div>
+              </div>
+          </fieldset>
+      </div>
+      
+      <div id="employmentStatusContainer">
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-2 pt-0">Employment Status</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Full-Time
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+               Part-Time
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+               Adjunct
+              </label>
+            </div>
+          </div>
+        </fieldset>
+    </div>
+    
+    <div id="startDateContainer">
+      <fieldset class="fieldset">
+          <h5>Start Date</h5>
+          <br>
+          <div class="row mb-3">
+            <label for="inputDate" class="col-sm-2 col-form-label">Start Date:</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control">
+            </div>
+          </div>
+      </fieldset>
+    </div>
+    
+    <div id="salaryContainer">
+      <fieldset class="fieldset">
+          <h5>Salary or Compensation Details</h5>
+          <br>
+          <div class="row mb-3">
+            <label for="inputNumber" class="col-sm-2 col-form-label">Salary:</label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control">
+            </div>
+          </div>
+      </fieldset>
+      <br>
+    </div>
+    <hr style="border: none;height: 4px;background-color: #121213ee;margin: 20px 0;">
+    <h4 class="card-title">Background Checks and References</h4>
+    <div id="criminalBackgroundCheckContainer">
+      <fieldset class="fieldset">
+          <h5>Criminal Background Check Consent Form</h5>
+          <br>
+          <div class="row mb-3">
+            <div class="col-sm-10">
+              <textarea class="form-control" style="height: 100px"></textarea>
+            </div>
+          </div>
+      </fieldset>
+  </div>
+  <hr>
+  <div id="referencesContainer">
+      <fieldset class="fieldset">
+          <h5>References</h5>
+          <br>
+          <div class="row mb-3">         
+            <div class="col-sm-10">
+              <textarea class="form-control" style="height: 100px"></textarea>
+            </div>
+          </div>
+      </fieldset>
+  </div>
+  <hr>
+  <div id="lettersOfRecommendationContainer">
+      <fieldset class="fieldset">
+          <h5>Letters of Recommendation</h5>
+          <br>
+          <div class="row mb-3">
+            <div class="col-sm-10">
+              <textarea class="form-control" style="height: 100px"></textarea>
+            </div>
+          </div>
+      </fieldset>
+  </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/chart.js/chart.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/quill/quill.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <!-- Template Main JS File -->
+
+</body>
+
+</html>

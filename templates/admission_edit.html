@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EduCrypt - Admission</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/quill/quill.snow.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/vendorquill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/vendorquill/quill.bubble.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/simple-datatables/style.css') }}" rel="stylesheet">
+
+
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">EduCrypt</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-bell"></i>
+            <span class="badge bg-primary badge-number">4</span>
+          </a><!-- End Notification Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+            <li class="dropdown-header">
+              You have 4 new notifications
+              <a href="#"><span class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+            </li>
+           
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li class="notification-item">
+              <i class="bi bi-info-circle text-primary"></i>
+              <div>
+                <h4>Dicta reprehenderit</h4>
+                <p>Quae dolorem earum veritatis oditseno</p>
+                <p>4 hrs. ago</p>
+              </div>
+            </li>
+
+          </ul><!-- End Notification Dropdown Items -->
+
+        </li><!-- End Notification Nav -->
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <span class="d-none d-md-block dropdown-toggle ps-2"></span>
+          </a><!-- End Profile Iamge Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed " href="/admin">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="/admission">
+            <i class="bi-file-earmark-person"></i>
+            <span>Admission</span>
+          </a>
+        </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link " href="/studentrecord">
+          <i class="bi-people"></i>
+          <span>Student Records</span>
+        </a>
+      </li><!-- End F.A.Q Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi-person-lines-fill"></i><span>Employee Records</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="charts-chartjs.html">
+              <i class="bi bi-circle"></i><span>Teaching</span>
+            </a>
+          </li>
+          <li>
+            <a href="/nontechnical">
+              <i class="bi bi-circle"></i><span>Non-Teaching</span>
+            </a>
+          </li>
+          <li>
+            <a href="charts-echarts.html">
+              <i class="bi bi-circle"></i><span>Management</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Charts Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-register.html">
+          <i class="bi bi-card-list"></i>
+          <span>Result Publish</span>
+        </a>
+      </li><!-- End Register Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi-trophy-fill"></i>
+          <span>Achievements</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-error-404.html">
+          <i class="bi-calendar-event-fill"></i>
+          <span>Events</span>
+        </a>
+      </li><!-- End Error 404 Page Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+   
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Edit Student Record</h5>
+
+              <!-- Floating Labels Form -->
+            <form action="/update/{{student._id}}" method="post" class="row g-3">
+                                          <div class="col-md-4">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="enroll" value="{{ student.enroll }}" placeholder="Enroll number" required>
+                                              <label for="floatingName">Enroll number</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-8">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" value="{{ student.name }}" name="name" placeholder="Name" required>
+                                              <label for="floatingEmail">Name</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <div class="form-floating">
+                                              <input type="date" class="form-control" name="dob" value="{{ student.dob }}" placeholder="Date of Birth" required>
+                                              <label for="floatingName">Date of Birth</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="rno" value="{{ student.Register_no }}" placeholder="" required>
+                                              <label for="floatingEmail">Birth Certificate - Register No</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <div class="form-floating mb-3">
+                                              <select class="form-select" name="caste" aria-label="State"  value="{{ student.caste }}" required>
+                                                <option value="{{ student.caste }}">{{ student.caste }}</option>
+                                                <option value="OBC">OBC</option>
+                                                <option value="MBC">MBC</option>
+                                                <option value="OC">OC</option>
+                                                <option value="General">General</option>
+                                                <option value="SC">SC</option>
+                                                <option value="ST">ST</option>                
+                                              </select>
+                                              <label for="floatingSelect">Caste</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="email" class="form-control" name="email"  value="{{ student.email }}" placeholder="Email" required>
+                                              <label for="floatingPassword">Student Email ID</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="pno"  value="{{ student.p_no }}" placeholder="Contact Number" required>
+                                              <label for="floatingPassword">Contact Number</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" name="fname"  value="{{ student.fname }}" placeholder="Father Name" required>
+                                              <label for="floatingPassword">Father Name</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="fpno"  value="{{ student.fPno }}" placeholder="Father Contact Number" required>
+                                              <label for="floatingPassword">Father Contact Number</label>
+                                            </div>
+                                          </div>
+
+                                          <div class="col-12">
+                                            <div class="form-floating">
+                                              <textarea class="form-control" placeholder="add" name="add"  value="{{ student.add }}" style="height: 100px;" required></textarea>
+                                              <label for="floatingTextarea">Address</label>
+                                            </div>
+                                          </div>
+                                                        
+                                          <div class="col-md-6">
+                                            <div class="col-md-12">
+                                              <div class="form-floating">
+                                                <input type="text" class="form-control" name="city"  value="{{ student.city }}" placeholder="City" required>
+                                                <label for="floatingCity">City</label>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <div class="form-floating mb-3">
+                                              <input type="text" class="form-control" name="state"  value="{{ student.state }}" placeholder="State" required>
+                                              <label for="floatingCity">State</label>
+                                          </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" name="zip"  value="{{ student.zip }}" placeholder="Zip" required>
+                                              <label for="floatingZip">Zip</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-4">
+                                            <div class="form-floating mb-3">
+                                              <select class="form-select" name="pro"  value="{{ student.pro }}" aria-label="Program" required>
+                                                <option value="{{ student.pro }}">{{ student.pro }}</option>
+                            <option value="B.Tech AEIE">B.Tech AEIE</option>
+                            <option value="B.Tech BME">B.Tech BME</option>
+                            <option value="B.Tech CE">B.Tech CE</option>
+                            <option value="B.Tech CSBS">B.Tech CSBS</option>
+                            <option value="B.Tech CSE">B.Tech CSE</option>
+                            <option value="B.Tech CSE(AIML)">B.Tech CSE(AIML)</option>
+                            <option value="B.Tech EE">B.Tech EE</option>
+                            <option value="B.Tech ECE">B.Tech ECE</option>
+                            <option value="B.Tech IT">B.Tech IT</option>
+                            <option value="B.Tech ME">B.Tech ME</option>
+                            <option value="M.Tech CI">M.Tech CI</option>
+                            <option value="M.Tech CSE">M.Tech CSE</option>
+                            <option value="M.Tech ECE">M.Tech ECE</option>
+                            <option value="M.Tech PS">M.Tech PS</option>
+                            <option value="BBA">BBA</option>
+                            <option value="MBA">MBA</option>
+                            <option value="BCA">BCA</option>
+                            <option value="MCA">MCA</option>
+                            <option value="Diploma in Electrical Engg">Diploma in Electrical Engg</option>
+                                              </select>
+                                              <label for="floatingSelect">Program</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <div class="form-floating mb-3">
+                                              <select class="form-select" name="year"  value="{{ student.year }}" aria-label="State" required>
+                                                <option value="{{ student.year }}">{{ student.year }}</option>
+                            <option value="I">I</option>
+                            <option value="II">II</option>
+                            <option value="III">III</option>
+                            <option value="IV">IV</option>
+                                              </select>
+                                              <label for="floatingSelect">Year</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-6">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" name="aadhar"  value="{{ student.aadhar }}" placeholder="Aadhar No" required>
+                                              <label for="floatingEmail">Aadhar No</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <div class="form-floating mb-3">
+                                              <select class="form-select" name="y12"  value="{{ student.y12 }}" aria-label="State" required>
+                                                <option value="{{ student.y12 }}">{{ student.y12 }}</option>
+                                                    <option value="2025">2025</option>
+                                                    <option value="2024">2024</option>
+                                                    <option value="2023">2023</option>
+                                                    <option value="2022">2022</option>
+                                                    <option value="2021">2021</option>
+                                              </select>
+                                              <label for="floatingSelect">Year of 12th Pass</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-7">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" name="n12"  value="{{ student.n12 }}" placeholder="School name " required>
+                                              <label for="floatingEmail">School name - 12th pass</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="no12"  value="{{ student.no12 }}" placeholder="" required>
+                                              <label for="floatingEmail">Marksheet Certificate No</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-2">
+                                            <div class="form-floating mb-3">
+                                              <select class="form-select" name="y10" aria-label="State"  value="{{ student.y10 }}" required>
+                                                <option value="{{ student.y10 }}">{{ student.y10 }}</option>
+                            <option value="2025">2019</option>
+                            <option value="2024">2020</option>
+                            <option value="2023">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2023</option>
+                            
+                                              </select>
+                                              <label for="floatingSelect">Year of 10th Pass</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-7">
+                                            <div class="form-floating">
+                                              <input type="text" class="form-control" name="n10"  value="{{ student.n10 }}" placeholder="School name " required>
+                                              <label for="floatingEmail">School name - 10th pass</label>
+                                            </div>
+                                          </div>
+                                          <div class="col-md-3">
+                                            <div class="form-floating">
+                                              <input type="number" class="form-control" name="no10"  value="{{ student.no10 }}" placeholder="" required>
+                                              <label for="floatingEmail">Marksheet Certificate No</label>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="d-grid gap-2 mt-3">
+                                            <button type="submit" class="btn btn-primary">Update</button>
+                                          </div>
+              </form><!-- End floating Labels Form -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/apexcharts/apexcharts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/chart.js/chart.umd.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/echarts/echarts.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/quill/quill.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/simple-datatables/simple-datatables.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <!-- Template Main JS File -->
+
+</body>
+
+</html>
