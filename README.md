@@ -14,7 +14,7 @@
 
 <hr>
 
-<b>Technical Stacks Used </b>
+# <b>Technical Stacks Used </b>
 
 ● HTML<br>
 <br>
@@ -30,13 +30,13 @@
 
 <hr>
 
-<b><i>Video Link (Google Drive link)</b></i>
+# <b><i>Demo Video Link (Google Drive link)</b></i>
 
 <a href="https://drive.google.com/file/d/13Y0VEbewISCWh1dYwmkqYY2c-KWcMcmw/view?usp=sharing">Click Here </a>
 
 <hr>
 
-<b>Architecture</b>
+# <b>Architecture</b>
 
 <b><i>Encryption</b></i>
 
@@ -45,6 +45,25 @@
 <b><i>Decryption</b></i>
 
 ![1](https://github.com/ShobikaG/EduCrypt-Quantum-Based-data-security/assets/110718471/ada1bb99-c880-4bba-86a9-4f6a4bdfbee2)
+
+<hr>
+
+# Sample
+
+<b><i>Example implementation in website</b></i>
+
+![3](https://github.com/ShobikaG/EduCrypt-Quantum-Based-data-security/assets/110718471/6486c780-5c66-42c4-a8fa-c1b0ccd65e04)
+<br>
+
+<b><i>Data stored in database(MongoDB)</b></i>
+
+![4](https://github.com/ShobikaG/EduCrypt-Quantum-Based-data-security/assets/110718471/c6885b64-fe50-48cb-b9ab-8230ff686a3a)
+
+<hr>
+
+<b><i>To explore more - </b></i><a href="https://drive.google.com/file/d/13Y0VEbewISCWh1dYwmkqYY2c-KWcMcmw/view?usp=sharing">Click Here </a>
+
+
 
 
 
